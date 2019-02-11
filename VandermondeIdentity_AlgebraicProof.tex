@@ -1,0 +1,49 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=0.7in, bottom=0.7in, left=0.7in, right=0.7in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[bottom]{footmisc}
+\usepackage{bm}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{mathabx}
+\usepackage{blkarray}
+
+\title{Vandermonde's Identity: an Algebraic Proof}
+\author{Danni Shi}
+\date{November 2018}
+
+\begin{document}
+\maketitle
+\noindent An algebraic approach to prove the Vandermonde's Identity:
+$$\sum_{x=0}^z \binom{n_1}{x} \binom{n_2}{z-x} = \binom{n_1 + n_2}{z}$$
+\noindent Recall the polynomial expansion
+$$(k+1)^{n_1 + n_2} = \sum_{z=0}^{n_1 + n_2} \binom{n_1 + n_2}{z}k^z (*)$$
+\noindent Also note that $(k+1)^{n_1 + n_2} = (k+1)^{n_1} \cdot (k+1)^{n_2}$, we can have
+\begin{align*}
+&(k+1)^{n_1 + n_2} = (k+1)^{n_1} \cdot (k+1)^{n_2} = \left(\sum_{i=0}^{n_1} \binom{n_1}{i} k^i\right) \cdot \left(\sum_{j=0}^{n_2} \binom{n_2}{j} k^j\right) \\
+&= \left(\binom{n_1}{0} + \binom{n_1}{1}k + \binom{n_1}{2}k^2 + \cdots + \binom{n_1}{n_1}k^{n_1}\right) \cdot \left(\binom{n_2}{0} + \binom{n_2}{1}k + \binom{n_2}{2}k^2 + \cdots + \binom{n_2}{n_2}k^{n_2}\right)\\
+&= \binom{n_1}{0} \binom{n_2}{0} + \left(\binom{n_1}{0}\binom{n_2}{1} + \binom{n_1}{1}\binom{n_2}{0}\right)k + \left(\binom{n_1}{0}\binom{n_2}{2} + \binom{n_1}{1}\binom{n_2}{1} + \binom{n_1}{2}\binom{n_2}{0}\right)k^2 + \cdots
+\end{align*}
+\noindent Let's go back to (*), so now the coefficient for a $k^z$ can also be expressed as
+$$\binom{n_1}{0}\binom{n_2}{z} + \binom{n_1}{1}\binom{n_2}{z-1} + \cdots + \binom{n_1}{z}\binom{n_2}{0} = \sum_{x=0}^z \binom{n_1}{z}\binom{n_2}{z-x}$$
+\noindent which implies that 
+$$\sum_{x=0}^z \binom{n_1}{x} \binom{n_2}{z-x} = \binom{n_1 + n_2}{z}$$
+
+\end{document}

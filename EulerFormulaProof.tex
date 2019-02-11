@@ -1,0 +1,44 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=0.8in, bottom=0.8in, left=0.8in, right=0.8in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[bottom]{footmisc}
+\usepackage{bm}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{mathabx}
+\usepackage{blkarray}
+
+\title{Proof for Euler's Formula}
+\author{Not Danni Shi's original work though}
+\date{December 2018}
+
+\begin{document}
+\maketitle
+\noindent Recall Euler's Formula: $e^{ix} = \cos x + i\sin x$. Let $z = \cos x + i\sin x$.
+\begin{align*}
+\frac{dz}{dx} &= -\sin x + i\cos x = i(i\sin x + \cos x) \\
+&= i(\cos x + i\sin x)\\
+&= iz\\
+\implies \frac{dz}{z} &= i \, dx, \,\, \int \frac{1}{z} dz = \int i \, dx\\
+\ln z &= ix \implies z = e^{ix} = \cos x + i\sin x
+\end{align*}
+
+
+\end{document}
