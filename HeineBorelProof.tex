@@ -1,0 +1,58 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=0.6in, bottom=0.8in, left=0.8in, right=0.8in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[bottom]{footmisc}
+\usepackage{bm}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{mathabx}
+\usepackage{blkarray}
+
+\title{Proof of the Heine-Borel Theorem}
+\author{Definitely not Danni Shi's Original Idea Though}
+\date{February 2019}
+
+\begin{document}
+\maketitle
+\begin{center}
+\noindent \textbf{Heine-Borel Theorem}:\\
+A subset $S$ of $\mathbb{R}$ is a compact set if and only if $S$ is closed and bounded.
+\end{center}
+\noindent {\sf \textbf{Proof}: }``\underline{$\Rightarrow$}": Suppose $S$ is compact. I want to first prove the \underline{bounded} part, then the \underline{closed} part.\\
+\underline{Bounded}: Let $\{U_\lambda: \lambda \in \Lambda\}$ be a collection of open sets that covers $\mathbb{R}$, with $U_{\lambda i} = B(0, \lambda_i)$. By compactness, $S$ can be covered by $\bigcup_{i=1}^k U_{\lambda i}$ with some finite $k \in \mathbb{N}$. \\
+\noindent Now choose $m = \max \{\lambda_1, \cdots, \lambda_k\}$. Then for all $s \text{ in } S, |s| \leq m$, so $S$ is bounded.\\
+\underline{Closed}: I want to show that $S^c = \mathbb{R} \setminus S$ is open. Let $x \in \mathbb{R} \setminus S$, and $s\in S$. Let $ds < \frac{1}{2} d(x,s)$. So $\{B(s, ds)\}$ is an open cover of $S$. Since $S$ is compact, $S$ can be covered by $\bigcup_{i=1}^m B(s_i, ds_i)$ for some finite $m \in \mathbb{N}$.\\
+Since $ds < \frac{1}{2} d(x,s)$, so $\bigcup_{i=1}^k \left(B(x, ds_i) \cap B(s_i, ds_i) \right) = \emptyset$ for any finite $k$.\\
+Since $x$ is arbitrary, this means for any $x$, its neighborhood is a subset of $\mathbb{R}\setminus S$, and thus $x$ is its interior point. Hence $\mathbb{R}\setminus S$ is open and $S$ is closed.\\
+
+\noindent ``\underline{$\Rightarrow$}": Suppose $S$ is closed and bounded, and I want to prove that $S$ is compact. Before I go on, I want to bring out this \textbf{lemma} first: a closed and bounded set contains its maximum and minimum. I will skip the proof and just use it because I am very lazy.\\
+Let $\{V_\lambda, \lambda \in \Lambda\}$ be an open cover of $S$. Let $\ell = \inf S$ and $u = \sup S$. $\ell, u \in S$. I want to show that $V$ has finite subcover for $S$. \\
+Define $S_x = S\cap (-\infty, x]\, \forall x \in \mathbb{R}$. Let $B$ be a collection of $x$ such that $S_x$ can be covered by a finite subcover of $V$. So $B$ keeps track of how much of $S$ can be finitely covered by $V$. ($B$ is nonempty. Consider $S_\ell = \{\ell\}$, which obviously can be finitely covered by $V$ and $\ell \in B$.)\\
+Assume $S$ is true, then all of $S$ can be finitely covered by $V$, and for all $x > u, x\in B$, as $S_x = \emptyset$ now. Then if my assumption is true, $S$ is compact and $B$ should not be bounded above. So first let me assume that $b = \sup B$ exists. \\
+Case 1, $b \in S$: we can assume $b\in V_{\lambda0}$ for some $\lambda0 \in \Lambda$. Since for all $j, V_{\lambda j}$ is open, there exists an interval $[x_1, x_2]$ in $V_{\lambda0}$ s.t. $x_1 < b < x_2$. Then there exists some $V_{\lambda k}$ (or a union of some) that covers $S_{x_1}$, which may also cover $S_{x_2}$, so $x_2 \in B$ also and this contradicts the supremum assumption of $b$.\\
+Case 2, $b \notin S$: Since $S$ is closed, there exists some $\epsilon >0$ s.t. $B(b, \epsilon) \cap S = \emptyset$. So $S_{b-\epsilon} = \emptyset = S_{b+\epsilon}$, and both $b-\epsilon, b+\epsilon$ belongs to $B$, which again contradicts the supremum assumption of $b$.\\
+Hence, $B$ is not bounded above and $S$ is compact. 
+
+\begin{center}
+%Extend to kD:
+\end{center}
+
+
+\end{document}
